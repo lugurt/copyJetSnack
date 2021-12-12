@@ -26,64 +26,63 @@ import com.example.copy.ui.theme.ProvideJetSnackColors
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
-  companion object {
-    const val TAG = "MainActivity"
-  }
-
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContent {
-      CopyTheme {
-        // A surface container using the 'background' color from the theme
-        val scope = rememberCoroutineScope()
-        val colors = LocalJetsnackColors.current.copy()
-        var backgroundColor by remember {
-          mutableStateOf(
-            Neutral0
-          )
-        }
-        Surface(color = backgroundColor) {
-          Column() {
-            Greeting("Android11111111")
-            ProvideJetSnackColors(colors = colors.copy().apply {
-              uiBackground = backgroundColor
-            }) {
-              TextButton(onClick = {
-                scope.launch {
-                  Log.d("lanwq", "backgroudColor:${backgroundColor.toString()}")
-                  backgroundColor = Neutral8
-                  Log.d("lanwq", "backgroudColor:${LocalJetsnackColors.toString()}")
-
-                }
-              }) {
-                Text(
-                  text = "1111",
-                  Modifier.background(color = LocalJetsnackColors.current.uiBackground)
-                )
-              }
-            }
-          }
-        }
-        SideEffect {
-          Log.d("TAG", "backgroudColor:${backgroundColor.toString()}")
-        }
-      }
+    companion object {
+        const val TAG = "MainActivity"
     }
-  }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            Greeting(name = "Android")
+        }
+    }
 }
 
 @Composable
 fun Greeting(name: String) {
-  Text(
-    text = "Hello $name!", color = CopyTheme.colors.textPrimary, modifier = Modifier.background
-      (color = LocalJetsnackColors.current.uiBackground)
-  )
+    CopyTheme {
+        // A surface container using the 'background' color from the theme
+        val scope = rememberCoroutineScope()
+        val colors = LocalJetsnackColors.current.copy()
+        var backgroundColor by remember {
+            mutableStateOf(
+                Neutral0
+            )
+        }
+        Surface(color = colors.uiBackground) {
+            Column() {
+                Surface(color = backgroundColor) {
+                    Text(text = name)
+                }
+                ProvideJetSnackColors(colors = colors.copy().apply {
+                    uiBackground = backgroundColor
+                }) {
+                    TextButton(onClick = {
+                        scope.launch {
+                            Log.d("lanwq", "backgroudColor:${backgroundColor.toString()}")
+                            backgroundColor = Neutral8
+                            Log.d("lanwq", "backgroudColor:${LocalJetsnackColors.toString()}")
+
+                        }
+                    }) {
+                        Text(
+                            text = "1111",
+                            Modifier.background(color = LocalJetsnackColors.current.uiBackground)
+                        )
+                    }
+                }
+            }
+        }
+        SideEffect {
+            Log.d("TAG", "backgroudColor:${backgroundColor.toString()}")
+        }
+    }
 }
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun DefaultPreview() {
-  CopyTheme {
-    Greeting("Android")
-  }
+    CopyTheme {
+        Greeting("Android")
+    }
 }
