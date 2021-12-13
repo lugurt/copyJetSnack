@@ -74,7 +74,7 @@ fun CopyTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable()
   }
   ProvideJetSnackColors(colors = colors) {
     MaterialTheme(
-      colors = debugColors(isSystemInDarkTheme()),
+      colors = debugColors(isSystemInDarkTheme(),colors),
       typography = Typography,
       shapes = Shapes,
       content = content

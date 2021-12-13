@@ -179,19 +179,20 @@ fun ProvideJetSnackColors(colors: JetsnackColors, content: @Composable () -> Uni
 
 fun debugColors(
   darkTheme: Boolean,
+  colors: JetsnackColors,
   debugColor: Color = Color.Magenta
 ) = Colors(
-  primary = debugColor,
-  primaryVariant = debugColor,
-  secondary = debugColor,
-  secondaryVariant = debugColor,
-  background = debugColor,
-  surface = debugColor,
-  error = debugColor,
-  onPrimary = debugColor,
-  onSecondary = debugColor,
-  onBackground = debugColor,
-  onSurface = debugColor,
-  onError = debugColor,
+  primary = colors.iconPrimary,
+  primaryVariant = colors.textPrimary,
+  secondary = colors.iconSecondary,
+  secondaryVariant = colors.textSecondary,
+  background = colors.uiBackground,
+  surface = colors.uiBackground,
+  error = colors.error,
+  onPrimary = colors.interactivePrimary[0],
+  onSecondary = colors.brandSecondary,
+  onBackground = colors.uiBackground,
+  onSurface = colors.gradient2_2[0],
+  onError = colors.error,
   isLight = !darkTheme
 )
