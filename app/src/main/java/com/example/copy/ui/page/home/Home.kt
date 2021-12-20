@@ -12,10 +12,10 @@ import com.example.copy.ui.theme.Ocean10
 
 @Composable
 fun CopyBottomBar() {
-  Surface(color = Ocean10, shape = RoundedCornerShape(8.dp)) {
+  Surface(color = Ocean10, shape = RoundedCornerShape(topStart = 8.dp, topEnd = 8.dp)) {
     Box(
       modifier = Modifier
-        .height(56.dp)
+        .height(48.dp)
         .fillMaxWidth()
     ) {
     }

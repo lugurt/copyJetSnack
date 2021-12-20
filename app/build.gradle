@@ -62,6 +62,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0'
     implementation Libs.AndroidX.Lifecycle.viewModelCompose
     implementation Libs.AndroidX.Activity.activityCompose
+    implementation Libs.AndroidX.Navigation.navigationCompose
     implementation Libs.Coroutines.android
     implementation Libs.Coroutines.core
     implementation Libs.Kotlin.stdlib

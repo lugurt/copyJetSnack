@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Greeting(name = "Android")
+            CopyApp()
         }
     }
 }
@@ -82,7 +82,5 @@ fun Greeting(name: String) {
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun DefaultPreview() {
-    CopyTheme {
-        Greeting("Android")
-    }
+    CopyApp()
 }
