@@ -70,7 +70,7 @@ fun CopyTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable()
   val systemUiController = rememberSystemUiController()
   SideEffect {
 //    systemUiController.setSystemBarsColor(color = colors.uiBackground.copy(AlphaNearOpaque))
-    Log.i("lanwq","change ")
+    Log.i("lanwq","darktheme $darkTheme  ")
     systemUiController.setSystemBarsColor(color = Ocean10)
   }
   ProvideJetSnackColors(colors = colors) {

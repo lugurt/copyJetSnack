@@ -2,9 +2,14 @@ package com.example.copy
 
 import android.content.res.Resources
 import androidx.compose.material.ScaffoldState
+import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.copy.model.SnackbarManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.collect
@@ -21,8 +26,10 @@ object MainDestinations {
 
 @Composable
 fun rememberCopyAppState(
-  scaffoldState: ScaffoldState, navController: NavHostController,
-  snackManager: SnackbarManager, resource: Resources, scope: CoroutineScope
+  scaffoldState: ScaffoldState = rememberScaffoldState(), navController: NavHostController =
+    rememberNavController(),
+  snackManager: SnackbarManager = SnackbarManager, resource: Resources = resources(), scope:
+  CoroutineScope = rememberCoroutineScope()
 ) = remember(scaffoldState, navController, snackManager, resource, scope) {
   CopyAppState(
     scaffoldState = scaffoldState, navController = navController, resource =
@@ -49,4 +56,12 @@ class CopyAppState(
     }
 
   }
+}
+
+
+@Composable
+@ReadOnlyComposable
+fun resources(): Resources {
+  LocalContext.current
+  return LocalContext.current.resources
 }

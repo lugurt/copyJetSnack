@@ -1,0 +1,1 @@
+{"commit_id": "ee3e9ed94ab3", "task_id": "616b1ea9-28a0-4705-bc6d-e8acbfba2623", "branch_name": "live_scene_interaction_pendant", "gradle_tasks": "resguardGifmakerHuidu,-Phuidutest=1,-DtestConfig=true,--stacktrace,-Dci=true,-Paar=keep", "build_type": "test", "arch": "x64", "origin_task_id": "bc213c5d-7994-49ed-8729-0b4e0d52fb16"}
